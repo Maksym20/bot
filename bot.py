@@ -70,13 +70,16 @@ async def unban(ctx, *, member ):
 @client.command()
 @commands.has_permissions(administrator = True)
 
-async def user_mute(ctx,member:discord.Member):
+async def mute(ctx,member:discord.Member):
 	await ctx.channel.purge(limit = 1)
 
 	mute_role = discord.utils.get(ctx.message.guild.roles, name = 'mute')
 
 	await member.add_roles(mute_role)
 	await ctx.send( f'{member.mention}, chat restriction for breaking the rules')
+
+# unmute
+
 
 #time
 @client.command()
@@ -113,7 +116,7 @@ async def helps(ctx):
     embed.add_field(name=".kick", value="aaaaaaaaaa", inline=False)
     embed.add_field(name=".ban", value="aaaaaaaaaa", inline=False)
     embed.add_field(name=".unban", value="aaaaaaaaaa", inline=False)
-    embed.add_field(name=".user_mute", value="aaaaaaaaaa", inline=False)
+    embed.add_field(name=".mute", value="aaaaaaaaaa", inline=False)
     embed.add_field(name=".info", value="Gives a little info about the bot", inline=False)
     embed.add_field(name=".helps", value="Gives this message", inline=False)
 
